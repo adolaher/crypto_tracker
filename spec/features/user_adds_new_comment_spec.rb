@@ -1,7 +1,7 @@
 require 'rails_helper'
 include AuthenticationHelper
 
-xfeature "user adds comments for coins" do
+feature "user adds comments for coins" do
 
   let(:adam) { FactoryBot.create(:user) }
   before(:each) do

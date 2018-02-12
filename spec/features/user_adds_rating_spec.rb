@@ -1,8 +1,7 @@
 require 'rails_helper'
 include AuthenticationHelper
 
-xfeature "visitor adds rating" do
-  #helper file needed
+feature "visitor adds rating" do
   let(:adam) { FactoryBot.create(:user) }
   let(:hermione) { FactoryBot.create(:user) }
   before(:each) do
