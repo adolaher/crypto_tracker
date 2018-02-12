@@ -15,3 +15,106 @@
  *= require foundation_and_overrides
 
  */
+ body {
+    background-color: #F0F0E1;
+}
+
+.coin-tile {
+  background-color: #FFFAFA;
+  width: 1000px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+  margin: 10px 10px 10px 10px;
+  padding: 10px ;
+  align-content: right;
+  font-size: 25px;
+  box-shadow: 5px 5px 5px #888
+}
+
+.search{
+  background-color: #F0F0E1;
+}
+
+.cointile {
+  background-color: #f1f1f1;
+  width: 1000px;
+  height: 265px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+
+}
+
+.commenttile {
+  background-color: #f1f1f1;
+  width: 1000px;
+  height: 200px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+}
+
+.tile {
+  background-color: #f1f1f1;
+  width: auto;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+}
+
+.coinfont {
+  font-size: 35px;
+}
+
+.padder {
+  padding: 20px;
+}
+
+.coinimg {
+  float: left;
+  height: 220px;
+}
+
+.commenttitle {
+  float: right;
+  padding: 50px;
+}
+
+.commentinfo {
+  float: left;
+  margin: auto;
+  padding: 18px;
+}
+
+
+
+.center {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+
+.floatleft {
+  float: left;
+}
+
+.floatright {
+  float: right;
+}
+
+.input {
+    width: 100%;
+}

@@ -1,0 +1,36 @@
+<h1>Comment for <%= @coin.name %></h1>
+<%= form_for [@coin, @comment] do |f| %>
+
+<div class="field">
+  <%= f.label :title %>
+  <%= f.text_area :title %>
+</div>
+
+<div class="field">
+  <%= f.label :body, "Description" %>
+  <%= f.text_area :body %>
+</div>
+
+<div class="field">
+  <%= f.label :rating, "Rating" %>
+  <%= f.text_area :rating %>
+</div>
+
+<div class="field">
+  <%= f.label :date, "Please enter date of initial coin investment (dd/mm/yyyy)" %>
+  <%= f.text_area :date %>
+</div>
+
+<div class="field">
+  <%= f.label :initial_coin_deposit, "Please enter the amount of dollars invested in USD" %>
+  <%= f.text_area :initial_coin_deposit %>
+</div>
+
+
+
+
+<div class="actions">
+  <%= f.submit "Add Comment" %>
+</div>
+
+<% end %>

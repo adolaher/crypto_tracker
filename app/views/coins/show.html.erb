@@ -1,0 +1,93 @@
+<div >
+  <%= link_to "Back", coins_path, class: 'button'  %>
+</div>
+
+<div class="row">
+  <div class="text-center padder tile">
+    <h1> <%= @coin.name %> </h1>
+  </div>
+</div>
+
+<% #PICTURE %>
+<div class="row">
+  <div class="text-center padder cointile">
+    <img class="coinimg" src=<%= @coin.picture %> alt=<%= @coin.name %>>
+    <p> <%= @coin.description %></p>
+    <p>Current price of <%= @coin_price_key %> in USD $<%= @coin_price_value %> </p>
+
+
+    <% if current_user != nil %>
+      <% if current_user.admin? %>
+        <%= link_to "Delete Coin", coin_path(@coin.id), class: 'button', method: :delete, data: {confirm: 'Are your sure?'} %>
+        <%= link_to "Edit Coin", edit_coin_path(@coin.id), class: 'button' %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="text-center tile padder ">
+
+
+
+    <div> Average Stability Score:</div>
+    <% for i in 1..@comment_rating %>
+      <span><i class="fab fa-bitcoin"></i></span>
+    <% end %>
+
+
+    <% if user_signed_in? %>
+      <%= link_to "Add Comment", new_coin_comment_path(@coin), class: 'button' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="text-center tile padder">
+    <h2> Comments for <%= @coin.name %> </h2>
+  </div>
+</div>
+
+
+
+    <ul>
+      <% @comments.each do |comment| %>
+        <div class="row">
+          <div class="text-center commenttile padder">
+          <div class="commenttitle"><h3> <%= comment.title  %> </h3>
+            <p class="floatright"> <%= comment.body %> </p>
+            
+          </div>
+
+          <div class="commentinfo">
+            <p> Rating:
+            <% for i in 1..comment.rating %>
+              <span><i class="fab fa-bitcoin"></i></span>
+            <% end %> </p>
+            <p> Initial investment date <%= comment.date %> </p>
+            <p> Amount of Coins Invested: <%= comment.initial_coin_deposit %></p>
+            <p> Value of Investment: <%= comment.value %> </p>
+
+
+
+
+          </div>
+
+          <% if current_user != nil %>
+            <% if current_user.admin? %>
+
+              <div class="commentinfo">
+              <p>Admin Buttons</p>
+              <%= link_to "Edit Comment", edit_coin_comment_path(@coin, comment), class: 'button'  %>
+              <%= link_to "Delete Comment", coin_comment_path(@coin, comment), class: 'button', method: :delete, data: {confirm: 'Are your sure?'} %>
+              </div>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+    </ul>
