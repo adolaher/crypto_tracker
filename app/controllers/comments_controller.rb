@@ -19,8 +19,14 @@ class CommentsController < ApplicationController
     #date translation to unix
     @unix_parse = Date.parse(@comment.date)
     @coin_deposit_date = @unix_parse.to_time.to_i
+
     @initial_coin_deposit = @comment.initial_coin_deposit
     @historical_price = Cryptocompare::PriceHistorical.find(@coin.name, 'USD', {'ts' => @coin_deposit_date})
+      # if Cryptocompare::PriceHistorical.find(@coin.name, 'USD', {'ts' => @coin_deposit_date}) == nil
+      #   flash[:error] = @comment.errors.full_messages.join(", ")
+      # else
+      #   @historical_price = Cryptocompare::PriceHistorical.find(@coin.name, 'USD', {'ts' => @coin_deposit_date})
+      # end
 
     @initial_investment_value = (@historical_price[@coin.name]["USD"] * @initial_coin_deposit)
     @current_investment_value = (@coin_price_value * @initial_coin_deposit)
