@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CoinTile from '../components/CoinTile';
-// import CoinFormContainer from '../containers/CoinFormContainer';
 
 class CoinsIndexContainer extends Component {
   constructor(props) {
@@ -50,6 +49,7 @@ class CoinsIndexContainer extends Component {
     }else {
       searchBy = this.state.searchResults
     }
+
     let searchResults = searchBy.map(coin => {
       return(
         <CoinTile

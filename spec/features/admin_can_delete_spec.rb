@@ -16,7 +16,7 @@ feature "admin " do
 
   scenario "deletes a comment successfully" do
     r1 = Coin.create!(name: "Bitcoin", picture: "this.img", user: adam)
-    review1= Comment.create!(title: "comment for r1", rating: "2", coin_id: r1.id, user_id: adam.id)
+    comment1= Comment.create!(title: "comment for r1", rating: "2", coin_id: r1.id, user_id: adam.id)
     visit coin_path(r1)
 
     click_link "Delete Comment"

@@ -14,7 +14,6 @@ class CoinsController < ApplicationController
     @coin_hist = Cryptocompare::HistoDay.find(@coin.name, 'USD')
     @coin_price_key = @coin_price.keys[0]
     @coin_price_value = @coin_price.values[0]["USD"]
-    #what is the statement to call in order to make it round to 2 decimals? i.e $1.8 = 1.80
     # @coin_deposit_date =
     # @historical_price = Cryptocompare::PriceHistorical.find(@coin.name, 'USD', {'ts' => 1452680400})
     # @historical_price_key = @historical_price.keys[0]

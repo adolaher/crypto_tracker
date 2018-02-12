@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
 
 const CoinTile = (props) => {
   let coinLink = "/coins/" + props.id
