@@ -28,13 +28,17 @@ class CommentsController < ApplicationController
       #   @historical_price = Cryptocompare::PriceHistorical.find(@coin.name, 'USD', {'ts' => @coin_deposit_date})
       # end
 
-    @initial_investment_value = (@historical_price[@coin.name]["USD"] * @initial_coin_deposit)
-    @current_investment_value = (@coin_price_value * @initial_coin_deposit)
+    if !@historical_price.nil?
+      @initial_investment_value = (@historical_price[@coin.name]["USD"] * @initial_coin_deposit)
+      @current_investment_value = (@coin_price_value * @initial_coin_deposit)
 
-    if @initial_investment_value < @current_investment_value
-      @comment.value = ((@current_investment_value - @initial_investment_value) / @initial_investment_value) * 100
+      if @initial_investment_value < @current_investment_value
+        @comment.value = (((@current_investment_value - @initial_investment_value) / @initial_investment_value) * 100).round
+      else
+        @comment.value = (((@initial_investment_value - @current_investment_value) / @initial_investment_value) * 100).round
+      end
     else
-      @comment.value = ((@initial_investment_value - @current_investment_value) / @initial_investment_value) * 100
+      render status: :not_found
     end
 
     # @comment.value = ((@coin_price_value * @comment.initial_coin_deposit) - (@historical_price[@coin.name]["USD"] * @comment.initial_coin_deposit))

@@ -52,6 +52,7 @@ class CoinsIndexContainer extends Component {
 
     let searchResults = searchBy.map(coin => {
       return(
+        <div classname="tile">
         <CoinTile
           key={coin.id}
           id={coin.id}
@@ -59,7 +60,7 @@ class CoinsIndexContainer extends Component {
           picture={coin.picture}
           body={coin.description}
         />
-
+        </div>
       )
     })
 
@@ -80,12 +81,11 @@ class CoinsIndexContainer extends Component {
 
     return(
       <div className="row">
-        <div className="large- 12 small-12 small-centered columns">
-          <h2> Coins </h2>
-          <div>{searchBar}</div>
-          <h1>{searchResults}</h1>
+          <ul>
+              <div>{searchBar}</div>
+              <h1>{searchResults}</h1>
+          </ul>
           <a className="rlink" href="/coins/new"> Add New Coin </a>
-        </div>
       </div>
     )
   }
