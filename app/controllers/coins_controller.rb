@@ -10,6 +10,8 @@ class CoinsController < ApplicationController
   def show
     @coin = Coin.find(params[:id])
 
+    
+
     @coin_price = Cryptocompare::Price.find(@coin.name, 'USD')
     @coin_hist = Cryptocompare::HistoDay.find(@coin.name, 'USD')
     @coin_price_key = @coin_price.keys[0]
