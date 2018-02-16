@@ -31,6 +31,7 @@ class CoinsIndexContainer extends Component {
     })
     this.setState({searchResults: resultsOfSearch})
   }
+  
 
   componentDidMount() {
     fetch('/api/coins')
@@ -85,7 +86,6 @@ class CoinsIndexContainer extends Component {
               <div>{searchBar}</div>
               <h1>{searchResults}</h1>
           </ul>
-          <a className="rlink" href="/coins/new"> Add New Coin </a>
       </div>
     )
   }

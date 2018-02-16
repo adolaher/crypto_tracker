@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     @coin = Coin.find(params[:coin_id])
+    @increase = true
 
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
@@ -33,9 +34,11 @@ class CommentsController < ApplicationController
       @current_investment_value = (@coin_price_value * @initial_coin_deposit)
 
       if @initial_investment_value < @current_investment_value
+        @increase_css_class = 'increase'
         @comment.value = (((@current_investment_value - @initial_investment_value) / @initial_investment_value) * 100).round
       else
-        @comment.value = (((@initial_investment_value - @current_investment_value) / @initial_investment_value) * 100).round
+        @increase_css_class = 'decrease'
+        @comment.value = -1 * (((@initial_investment_value - @current_investment_value) / @initial_investment_value) * 100).round
       end
     else
       render status: :not_found
